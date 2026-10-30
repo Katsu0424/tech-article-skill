@@ -4,7 +4,7 @@ Zenn の技術記事を、著者が主体で書き上げるための Claude Code
 
 **AI Slop な記事は書かない。事実を根拠として、自分で確かめながら書く。**
 
-記事の文は「著者が言ったこと」「モデルが実際に実行して得た結果」「原典からの引用」の 3 つからしか来ない。モデルは聞き手・整形役・コマンド実行役・校正役で、著者が言っていない主張を本文に足さない。記事は常に `published: false` で、公開は著者が手でやる（hook で AI が `true` を書けないようにする）。
+記事の文は「著者が言ったこと」「モデルが実際に実行して得た結果」「原典からの引用」の 3 つからしか来ない。モデルは聞き手・整形役・コマンド実行役・校正役で、著者が言っていない主張を本文に足さない。記事は常に `published: false` で、公開は著者が手でやる（hook で `published: true` の直接的な書き込みを抑止する）。
 
 ## 流れ
 
@@ -74,7 +74,7 @@ bash ~/.claude/skills/tech-article/scripts/setup-repo.sh
 
 | パス | 何 |
 |---|---|
-| `.claude/hooks/guard-published.py` | AI が `published: true` を書くのを止める hook |
+| `.claude/hooks/guard-published.py` | `published: true` の直接的な書き込みを抑止する hook |
 | `.claude/settings.json` | 上の hook の登録（`hooks/settings.example.json` と同じ内容を既存の設定に足す） |
 | `.claude/launch.json` | Desktop app の内蔵ブラウザでプレビューを開くための `zenn-preview` |
 | `package.json` | `npm run preview`（port 8000）と `npm run check -- <slug>` |
@@ -103,7 +103,7 @@ npm run check -- <slug>    # 公開前チェック（frontmatter・画像の実�
 3. `articles/<slug>.md` の `published: false` を **自分の手で** `true` に変える
 4. commit して push する（Zenn と GitHub 連携済みの場合）。連携していなければ本文を Zenn のエディタに貼る
 
-AI は `published: true` を書けない。Claude Code から Write / Edit / Bash でその文字列を書こうとすると hook が止める。
+hook は、Claude Code の Write / Edit による記事への書き込みや Bash コマンドに `published: true` が含まれる場合に止める補助策。`false` を `true` に置換する操作などは検出できず、公開変更を完全に防ぐものではない。公開前には著者が差分を確認する。
 
 ## 置き場（記事リポジトリ側）
 
@@ -132,7 +132,7 @@ scripts/check-article.sh       公開前チェック（npm run check の実体�
 scripts/shot.sh                headless Chrome でローカルの Web 画面を撮る
 scripts/install-deps.sh        依存 skill を ~/.claude/skills に入れる
 scripts/setup-repo.sh          記事リポジトリに hook・launch.json・npm scripts を入れる
-hooks/guard-published.py       published: true を止める PreToolUse hook
+hooks/guard-published.py       published: true の直接的な書き込みを抑止する PreToolUse hook
 hooks/settings.example.json    hook の登録例
 config/launch.json             zenn-preview の設定
 ```

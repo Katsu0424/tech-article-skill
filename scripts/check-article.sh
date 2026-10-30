@@ -52,7 +52,7 @@ fi
 # 節ごとに図・コード・出力があるか（目安）
 sections=$(grep -cE '^## ' "$article")
 blocks=$(grep -cE '^```|^!\[' "$article")
-echo "  info 節 $sections / コードブロック+画像 $blocks（1節に1つ以上が目安）"
+echo "  info 節 $sections / コードブロック+画像 ${blocks}（1節に1つ以上が目安）"
 
 echo
 if [[ $ng -eq 0 ]]; then
