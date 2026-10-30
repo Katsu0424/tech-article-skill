@@ -32,10 +32,8 @@ Zenn の技術記事を、著者が主体で書き上げるための Claude Code
 
 ### 1. skill を入れる
 
-private リポジトリなので `gh auth login` 済みの [GitHub CLI](https://cli.github.com/) で clone する。
-
 ```bash
-gh repo clone Katsu0424/tech-article-skill ~/.claude/skills/tech-article
+git clone https://github.com/Katsu0424/tech-article-skill.git ~/.claude/skills/tech-article
 ```
 
 ### 2. 依存 skill を入れる（任意だが推奨）
