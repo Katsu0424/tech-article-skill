@@ -129,9 +129,10 @@ outline.md の「要る主張」が全部空欄（体験だけで書ける記事
 
 ## フェーズ 6. 日本語校正
 
-`/natural-writing-ja` が入っていれば Skill ツールで呼び、`articles/<slug>.md` に当てる。無ければ `references/style-notes.md` の決めだけを手で当てる。
-- 節ごとに、直す文を **before / after** で並べて見せ、著者が OK した分だけ適用する
-- 直すのは決めに当たる文（文書を更新するだけの文・文体の混在・くどい締め）に限る。著者の判断や言い回しを別の内容に変えない
+`/yomiyasu` が入っていれば Skill ツールで呼び、`articles/<slug>.md` を推敲させる。最終稿の出力先は `work/<slug>/yomiyasu-<YYYYMMDD>.md` と指定し、frontmatter とコードブロックは対象外と伝える（yomiyasu は原文を書き換えず別のファイルに最終稿を書く。`articles/` に置くと zenn-cli が記事として読む）。`references/style-notes.md` の決めも一緒に当て、yomiyasu の直しと食い違うところは style-notes に従う。yomiyasu が無ければ style-notes の決めだけを手で当てる。
+- 節ごとに、直す文を **before / after** で並べて見せ、著者が OK した分だけ `articles/<slug>.md` に適用する
+- yomiyasu が「書き手に確かめたい点」を返したら、著者に聞く
+- 直すのは yomiyasu が指す文（不自然な比喩・曖昧な主述関係・不要な装飾やコピー調など）と、style-notes の決めに当たる文（文体の混在・くどい締めなど）に限る。著者の判断や言い回しを別の内容に変えない
 - 校正で新しい主張が入っていないか、適用後に一度読み返す
 
 ## フェーズ 7. 再現性評価（任意）

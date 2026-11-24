@@ -4,9 +4,8 @@
 # 入れるもの（出どころは README.md）:
 #   grill-me                      mattpocock/skills
 #   imozuru                       MaryCache/imozuru
-#   natural-writing-ja            mizchi/skills
+#   yomiyasu                      nanaism/yomiyasu
 #   tech-article-reproducibility  mizchi/skills
-#   ai-index                      mizchi/skills（natural-writing-ja の lint。任意）
 # どれも無くても tech-article は動く（該当フェーズを縮めて進む）。
 set -euo pipefail
 
@@ -47,8 +46,7 @@ install_skill() { # <owner/repo> <skill名>
 echo "install to: $dest"
 install_skill mattpocock/skills grill-me
 install_skill MaryCache/imozuru imozuru
-install_skill mizchi/skills natural-writing-ja
+install_skill nanaism/yomiyasu yomiyasu
 install_skill mizchi/skills tech-article-reproducibility
-install_skill mizchi/skills ai-index
 echo
-echo "入った。Claude Code を立ち上げ直すと /grill-me /imozuru /natural-writing-ja /tech-article-reproducibility が使える。"
+echo "入った。Claude Code を立ち上げ直すと /grill-me /imozuru /yomiyasu /tech-article-reproducibility が使える。"

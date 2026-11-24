@@ -15,7 +15,7 @@ Zenn の技術記事を、著者が主体で書き上げるための Claude Code
 | 3 | 資料集め（任意） | 要る主張の原典と解説を集める | `/imozuru`（無ければ WebSearch） |
 | 4 | SEO 調査（任意） | 検索数と上位ページを引き、タイトル・見出し・topics の案を出す。本文は変えない | ラッコキーワード MCP（無ければサジェストのみ） |
 | 5 | 執筆 | 節ごとに 著者が口述 → モデルが整形 → プレビューで確認 | `npm run preview` |
-| 6 | 日本語校正 | before / after で見せ、著者が OK した分だけ直す | `/natural-writing-ja`（無ければ style-notes のみ） |
+| 6 | 日本語校正 | before / after で見せ、著者が OK した分だけ直す | `/yomiyasu`（無ければ style-notes のみ） |
 | 7 | 再現性評価（任意） | 初見の読者役のサブエージェントに再現させ、詰まり所を直す | `/tech-article-reproducibility`（無ければ代替） |
 | 8 | 公開前チェック | `npm run check`・プレビュー通し見。公開は著者が手で | — |
 
@@ -48,9 +48,8 @@ bash ~/.claude/skills/tech-article/scripts/install-deps.sh
 |---|---|---|
 | grill-me | 1. 深掘り（1 問ずつ聞く流儀。質問バンクはこの skill のもの） | https://github.com/mattpocock/skills |
 | imozuru | 3. 資料集め（原文を要約せずに落とす） | https://github.com/MaryCache/imozuru |
-| natural-writing-ja | 6. 日本語校正（機械っぽい文の検出） | https://github.com/mizchi/skills |
+| yomiyasu | 6. 日本語校正（AI が書いた日本語の推敲。lint 付き） | https://github.com/nanaism/yomiyasu |
 | tech-article-reproducibility | 7. 再現性評価（10 軸 20 点） | https://github.com/mizchi/skills |
-| ai-index | natural-writing-ja の lint | https://github.com/mizchi/skills |
 
 ### 3. Zenn の記事リポジトリに前提を入れる
 
